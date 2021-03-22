@@ -49,7 +49,7 @@ const Selector: React.ForwardRefRenderFunction<unknown, SelectorProps> = (props,
   const selectValuesRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
   const isEmptyValue = useMemo(() => !isEmpty(value), [value]);
-  const showClose = allowClear && (isEmptyValue || input) && isHovered;
+  const showClose = allowClear && (isEmptyValue || input) && isHovered && !disabled;
   const selectValuesWidth = selectValuesRef?.current?.getBoundingClientRect()?.width;
   const isShowTooltip = (selectValuesWidth || 0) - (selectorAllRef?.current?.clientWidth || 0) <= 0;
 
